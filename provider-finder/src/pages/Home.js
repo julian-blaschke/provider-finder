@@ -6,7 +6,7 @@ function Home() {
   const { push } = useHistory();
   return (
     <div
-      className="flex flex-col h-screen"
+      className="flex flex-col h-full"
       style={{
         backgroundImage: `url(${logo})`,
         backgroundSize: "contain",

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./styles/index.css";
@@ -10,11 +10,23 @@ import { ThemeProvider } from "./context/ThemeContext";
 
 function FullW({ children }) {
   return (
-    <div className="h-screen bg-gray-100 dark:bg-gray-900">{children}</div>
+    <div className="h-screen bg-gray-100 dark:bg-gray-900 max-h-screen">
+      {children}
+    </div>
   );
 }
 
 function App() {
+  //full screen on mobile shouldn't overflow
+  //credit: https://www.markusantonwolf.com/en/articles/solution-to-the-mobile-viewport-height-issue-with-tailwind-css
+  useEffect(() => {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+    return window.addEventListener("resize", () => {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    });
+  });
   return (
     <BrowserRouter>
       <StepperProvider>
