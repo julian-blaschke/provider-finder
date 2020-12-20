@@ -18,20 +18,22 @@ function Usage() {
       <p className="mt-2 text-sm font-light text-gray-600">
         Find the best Internet Providers for your individual usage.
       </p>
-      <div className="py-4">
+      <div className="mt-10 py-4">
         <label
           htmlFor="usage"
-          className="mb-2 font-semibold text-gray-900 dark:text-gray-100"
+          className="font-semibold text-gray-900 dark:text-gray-100"
         >
           {values.usage}
         </label>
         <select
           id="usage"
-          className="p-2 w-full h-12 bg-gray-100 rounded"
+          className="p-2 w-full h-12 bg-gray-200 rounded"
           onChange={(e) => setValues((v) => ({ ...v, usage: e.target?.value }))}
         >
           {usages.map((u) => (
-            <option key={u} label={u} value={u}></option>
+            <option key={u} label={u} selected={u === values.usage}>
+              {u}
+            </option>
           ))}
         </select>
       </div>
@@ -50,7 +52,7 @@ function Devices() {
       <p className="mt-2 text-sm font-light text-gray-600">
         Please tell us how many devices you connect to your internet on average.
       </p>
-      <div className="py-4">
+      <div className="mt-10 py-4">
         <label
           htmlFor="devices"
           className="mb-2 font-semibold text-gray-900 dark:text-gray-100"
@@ -62,7 +64,7 @@ function Devices() {
           type="number"
           min={1}
           max={100}
-          className="p-2 w-full h-12 bg-gray-100 rounded"
+          className="p-2 w-full h-12 bg-gray-200 rounded"
           value={values.devices}
           onChange={(e) =>
             setValues((v) => ({ ...v, devices: e.target.value }))
@@ -84,7 +86,7 @@ function Budget() {
       <p className="mt-2 text-sm font-light text-gray-600">
         Please tell us how much you are willing to spend on your internet.
       </p>
-      <div className="py-4">
+      <div className="mt-10 py-4">
         <label
           htmlFor="devices"
           className="mb-2 font-semibold text-gray-900 dark:text-gray-100"
@@ -96,7 +98,7 @@ function Budget() {
           type="number"
           min={1}
           max={300}
-          className="p-2 w-full h-12 bg-gray-100 rounded"
+          className="p-2 w-full h-12 bg-gray-200 rounded"
           value={values.budget}
           onChange={(e) => setValues((v) => ({ ...v, budget: e.target.value }))}
         ></input>
@@ -119,30 +121,47 @@ function Stepper() {
       className="flex flex-col h-screen"
       style={{
         backgroundImage: `url(${logo})`,
-        backgroundSize: "auto",
+        backgroundSize: "contain",
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "bottom center",
+        backgroundPosition: "bottom right",
       }}
     >
       <NavBar></NavBar>
-      <div className="p-4">
-        <span className="text-gray-600 font-medium"> Step {step + 1} of 3</span>
-      </div>
-      <div className="p-4 flex flex-col h-full">
-        {[<Usage />, <Devices />, <Budget />][step]}
-        <button
-          className="text-base w-full uppercase font-semibold h-12 bg-purple-500 rounded text-gray-100 shadow-lg"
-          onClick={() => {
-            if (step === 3 - 1) {
-              setStep(0);
-              push("/results");
-            } else {
-              setStep((s) => s + 1);
-            }
-          }}
-        >
-          {step === 3 - 1 ? "finish" : "next"}
-        </button>
+      <div className="h-full p-4 flex flex-col max-w-lg">
+        <div className="mt-10 px-4">
+          <span className="text-gray-600 font-medium">
+            Step {step + 1} of 3
+          </span>
+        </div>
+        <div className="px-4 flex flex-col h-full">
+          {[<Usage />, <Devices />, <Budget />][step]}
+          <div className="flex flex-row reverse">
+            <button
+              tabIndex={-1}
+              className={`hidden md:block text-base w-full uppercase font-semibold h-12 rounded text-gray-900 dark:text-gray-100 ${
+                step === 0 ? "invisible" : ""
+              }`}
+              onClick={() => {
+                setStep((s) => s - 1);
+              }}
+            >
+              back
+            </button>
+            <button
+              className="text-base w-full uppercase font-semibold h-12 bg-purple-500 rounded text-gray-100 shadow-lg"
+              onClick={() => {
+                if (step === 3 - 1) {
+                  setStep(0);
+                  push("/results");
+                } else {
+                  setStep((s) => s + 1);
+                }
+              }}
+            >
+              {step === 3 - 1 ? "finish" : "next"}
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

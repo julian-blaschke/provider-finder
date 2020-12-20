@@ -55,27 +55,32 @@ function Results() {
     <div className="h-screen">
       <NavBar></NavBar>
       <Preferences></Preferences>
-      <div className="p-4">
-        <h1 className="text-4xl font-semibold text-gray-900 dark:text-gray-100">
-          🏆 Top picks 4 u
-        </h1>
-        <p className="mt-2 jtext-sm font-light text-gray-600">
-          Here are our top 3 picks for you based on your preferences.
-        </p>
-        <div className="py-4 grid space-y-4">
-          {results.map((result, id) => (
-            <Result {...result} rank={id}></Result>
-          ))}
-        </div>
-      </div>
-      <div className="p-4">
-        <h2 className="text-4xl font-semibold text-gray-900 dark:text-gray-100">
-          You might also like
-        </h2>
-        <div className="py-4 grid space-y-4">
-          {results.map((result, id) => (
-            <Result {...result} rank={id}></Result>
-          ))}
+      {/*todo: make this scrollable*/}
+      <div className="flex flex-col items-center">
+        <div>
+          <div className="mt-4 p-4 max-w-lg">
+            <h1 className="text-4xl font-semibold text-gray-900 dark:text-gray-100">
+              🏆 Top picks 4 u
+            </h1>
+            <p className="mt-2 jtext-sm font-light text-gray-600">
+              Here are our top 3 picks for you based on your preferences.
+            </p>
+            <div className="py-4 grid space-y-4">
+              {results.map((result, id) => (
+                <Result {...result} rank={id}></Result>
+              ))}
+            </div>
+          </div>
+          <div className="mt-4 p-4 max-w-lg">
+            <h2 className="text-4xl font-semibold text-gray-900 dark:text-gray-100">
+              You might also like
+            </h2>
+            <div className="py-4 grid space-y-4">
+              {results.map((result, id) => (
+                <Result {...result} rank={id}></Result>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
