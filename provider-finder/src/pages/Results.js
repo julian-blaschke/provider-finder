@@ -52,7 +52,7 @@ function Result({ rank, name, price, link }) {
 
 function Results() {
   return (
-    <div className="h-screen">
+    <div className="dark:bg-gray-900">
       <NavBar></NavBar>
       <Preferences></Preferences>
       {/*todo: make this scrollable*/}

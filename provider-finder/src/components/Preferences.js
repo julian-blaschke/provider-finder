@@ -10,7 +10,7 @@ function Preferences() {
   const { push } = useHistory();
 
   return (
-    <div className="w-full bg-purple-500 rounded-b">
+    <div className="w-full bg-purple-500 rounded-b sticky top-0">
       <div
         className="p-2 h-12 flex flex-row justify-between items-center cursor-pointer"
         onClick={() => setIsOpen((o) => !o)}

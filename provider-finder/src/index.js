@@ -43,9 +43,7 @@ function App() {
               </FullW>
             </Route>
             <Route exact path="/results">
-              <FullW>
-                <Results></Results>
-              </FullW>
+              <Results></Results>
             </Route>
           </Switch>
         </ThemeProvider>

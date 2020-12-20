@@ -11,7 +11,7 @@ function Home() {
         backgroundImage: `url(${logo})`,
         backgroundSize: "contain",
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "right",
+        backgroundPosition: "right bottom",
       }}
     >
       <NavBar></NavBar>
