@@ -10,7 +10,7 @@ import { ThemeProvider } from "./context/ThemeContext";
 
 function FullW({ children }) {
   return (
-    <div className="h-screen bg-gray-100 dark:bg-gray-900 max-h-screen">
+    <div className="transition duration-500 h-screen bg-gray-100 dark:bg-gray-900 max-h-screen">
       {children}
     </div>
   );

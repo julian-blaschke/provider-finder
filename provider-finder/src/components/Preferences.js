@@ -16,21 +16,23 @@ function Preferences() {
         onClick={() => setIsOpen((o) => !o)}
       >
         <span className="font-semibold text-gray-100">Preferences</span>
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M6 9L12 15L18 9"
-            stroke="#F7FAFC"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
+        <span className={`transition transform ${isOpen ? "rotate-180" : ""}`}>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6 9L12 15L18 9"
+              stroke="#F7FAFC"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </span>
       </div>
       <div className={`${isOpen ? "block" : "hidden"} px-2 pb-2 text-gray-100`}>
         <div className="grid space-y-2 my-3">
