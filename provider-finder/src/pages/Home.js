@@ -17,7 +17,7 @@ function Home() {
       <NavBar></NavBar>
       <div className="h-full p-4 flex flex-col">
         <div className="flex flex-col flex-grow">
-          <h1 className="text-4xl font-semibold text-gray-900">
+          <h1 className="text-4xl font-semibold text-gray-900 dark:text-gray-100">
             Welcome to Provider Finder!
           </h1>
           <p className="mt-2 jtext-sm font-light text-gray-600">

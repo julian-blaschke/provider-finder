@@ -9,7 +9,7 @@ const results = [
 
 function Result({ rank, name, price, link }) {
   return (
-    <div className="p-2 flex flex-row bg-gray-100 shadow justify-between items-center">
+    <div className="p-2 flex flex-row bg-gray-100 shadow justify-between items-center rounded">
       <div className="flex flex-row items-center">
         <span className="font-semibold text-lg text-purple-600">#{rank}</span>
         <div className="ml-4">
@@ -56,7 +56,9 @@ function Results() {
       <NavBar></NavBar>
       <Preferences></Preferences>
       <div className="p-4">
-        <h1 className="text-4xl font-semibold">🏆 Top picks 4 u</h1>
+        <h1 className="text-4xl font-semibold text-gray-900 dark:text-gray-100">
+          🏆 Top picks 4 u
+        </h1>
         <p className="mt-2 jtext-sm font-light text-gray-600">
           Here are our top 3 picks for you based on your preferences.
         </p>
@@ -67,7 +69,9 @@ function Results() {
         </div>
       </div>
       <div className="p-4">
-        <h1 className="text-4xl font-semibold">You might also like</h1>
+        <h2 className="text-4xl font-semibold text-gray-900 dark:text-gray-100">
+          You might also like
+        </h2>
         <div className="py-4 grid space-y-4">
           {results.map((result, id) => (
             <Result {...result} rank={id}></Result>

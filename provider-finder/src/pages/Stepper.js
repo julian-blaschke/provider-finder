@@ -12,14 +12,17 @@ function Usage() {
 
   return (
     <div className="flex flex-col flex-grow">
-      <h1 className="text-4xl font-semibold">
+      <h1 className="text-4xl font-semibold text-gray-900 dark:text-gray-100">
         I use my Internet mostly for...
       </h1>
       <p className="mt-2 text-sm font-light text-gray-600">
         Find the best Internet Providers for your individual usage.
       </p>
       <div className="py-4">
-        <label htmlFor="usage" className="mb-2 font-semibold">
+        <label
+          htmlFor="usage"
+          className="mb-2 font-semibold text-gray-900 dark:text-gray-100"
+        >
           {values.usage}
         </label>
         <select
@@ -41,12 +44,17 @@ function Devices() {
 
   return (
     <div className="flex flex-col flex-grow">
-      <h1 className="text-4xl font-semibold">On average I connect...</h1>
+      <h1 className="text-4xl font-semibold text-gray-900 dark:text-gray-100">
+        On average I connect...
+      </h1>
       <p className="mt-2 text-sm font-light text-gray-600">
         Please tell us how many devices you connect to your internet on average.
       </p>
       <div className="py-4">
-        <label htmlFor="devices" className="mb-2 font-semibold">
+        <label
+          htmlFor="devices"
+          className="mb-2 font-semibold text-gray-900 dark:text-gray-100"
+        >
           {values.devices} Devices
         </label>
         <input
@@ -70,12 +78,17 @@ function Budget() {
 
   return (
     <div className="flex flex-col flex-grow">
-      <h1 className="text-4xl font-semibold">I can afford at most...</h1>
+      <h1 className="text-4xl font-semibold text-gray-900 dark:text-gray-100">
+        I can afford at most...
+      </h1>
       <p className="mt-2 text-sm font-light text-gray-600">
         Please tell us how much you are willing to spend on your internet.
       </p>
       <div className="py-4">
-        <label htmlFor="devices" className="mb-2 font-semibold">
+        <label
+          htmlFor="devices"
+          className="mb-2 font-semibold text-gray-900 dark:text-gray-100"
+        >
           At most € {values.budget} / month
         </label>
         <input
