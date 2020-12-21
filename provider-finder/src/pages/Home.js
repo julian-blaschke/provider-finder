@@ -1,9 +1,11 @@
 import NavBar from "../components/Navbar";
 import logo from "../img/home.png";
 import { useHistory } from "react-router";
+import { useStepperContext } from "../context/StepperContext";
 
 function Home() {
   const { push } = useHistory();
+  const { step } = useStepperContext();
   return (
     <div
       className="flex flex-col h-full"
@@ -27,14 +29,22 @@ function Home() {
             className="mt-10 text-base w-80 uppercase font-semibold h-12 bg-purple-500 rounded text-gray-100 shadow-lg hidden md:block"
             onClick={() => push("/stepper")}
           >
-            get started
+            {step
+              ? step === 0
+                ? "start survey"
+                : "finish survey"
+              : "start survey"}
           </button>
         </div>
         <button
           className="text-base w-full uppercase font-semibold h-12 bg-purple-500 rounded text-gray-100 shadow-lg md:hidden"
           onClick={() => push("/stepper")}
         >
-          get started
+          {step
+            ? step === 0
+              ? "start survey"
+              : "finish survey"
+            : "start survey"}
         </button>
       </div>
     </div>

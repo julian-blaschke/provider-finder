@@ -27,11 +27,12 @@ function Usage() {
         </label>
         <select
           id="usage"
-          className="p-2 w-full h-12 bg-gray-200 rounded"
-          onChange={(e) => setValues((v) => ({ ...v, usage: e.target?.value }))}
+          className="input"
+          value={values.usage}
+          onChange={(e) => setValues((v) => ({ ...v, usage: e.target.value }))}
         >
           {usages.map((u) => (
-            <option key={u} label={u} selected={u === values.usage}>
+            <option key={u} label={u}>
               {u}
             </option>
           ))}
@@ -64,10 +65,10 @@ function Devices() {
           type="number"
           min={1}
           max={100}
-          className="p-2 w-full h-12 bg-gray-200 rounded"
+          className="input"
           value={values.devices}
           onChange={(e) =>
-            setValues((v) => ({ ...v, devices: e.target.value }))
+            setValues((v) => ({ ...v, devices: parseInt(e.target.value) }))
           }
         ></input>
       </div>
@@ -98,9 +99,11 @@ function Budget() {
           type="number"
           min={1}
           max={300}
-          className="p-2 w-full h-12 bg-gray-200 rounded"
+          className="input"
           value={values.budget}
-          onChange={(e) => setValues((v) => ({ ...v, budget: e.target.value }))}
+          onChange={(e) =>
+            setValues((v) => ({ ...v, budget: parseInt(e.target.value) }))
+          }
         ></input>
       </div>
     </div>
@@ -108,7 +111,7 @@ function Budget() {
 }
 
 function Stepper() {
-  const { step, setStep } = useStepperContext();
+  const { step, setStep, values } = useStepperContext();
   const { push } = useHistory();
   const logo = useMemo(() => {
     if (step === 0) return usageLogo;
@@ -128,12 +131,10 @@ function Stepper() {
     >
       <NavBar></NavBar>
       <div className="h-full p-4 flex flex-col max-w-lg">
-        <div className="mt-10 px-4">
-          <span className="text-gray-600 font-medium">
-            Step {step + 1} of 3
-          </span>
+        <div className="lg:mt-4 lg:px-4">
+          <span className="text-gray-600 text-xl">Step {step + 1} of 3</span>
         </div>
-        <div className="px-4 flex flex-col h-full">
+        <div className="lg:p-4 flex flex-col h-full">
           {[<Usage />, <Devices />, <Budget />][step]}
           <div className="flex flex-row reverse">
             <button
@@ -149,6 +150,7 @@ function Stepper() {
             </button>
             <button
               className="text-base w-full uppercase font-semibold h-12 bg-purple-500 rounded text-gray-100 shadow-lg"
+              disabled={!!values[step]}
               onClick={() => {
                 if (step === 3 - 1) {
                   setStep(0);

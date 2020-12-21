@@ -10,7 +10,7 @@ function Preferences() {
   const { push } = useHistory();
 
   return (
-    <div className="w-full bg-purple-500 rounded-b sticky top-0">
+    <div className="w-full bg-purple-500 rounded-b sticky top-0 z-40">
       <div
         className="p-2 h-12 flex flex-row justify-between items-center cursor-pointer"
         onClick={() => setIsOpen((o) => !o)}
@@ -27,17 +27,22 @@ function Preferences() {
             <path
               d="M6 9L12 15L18 9"
               stroke="#F7FAFC"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
         </span>
       </div>
-      <div className={`${isOpen ? "block" : "hidden"} px-2 pb-2 text-gray-100`}>
+      <div
+        className={`${
+          isOpen ? "block" : "hidden"
+        } px-2 pb-2 text-gray-100 transition duration-500 transform`}
+      >
         <div className="grid space-y-2 my-3">
           {steps.map((step) => (
             <div
+              key={step}
               className="flex flex-row justify-between items-center cursor-pointer"
               onClick={() => {
                 setStep(() => {
@@ -48,7 +53,13 @@ function Preferences() {
                 push("/stepper");
               }}
             >
-              <span className="text-sm font-semibold">{values[step]}</span>
+              <span className="text-sm font-semibold">
+                {(() => {
+                  if (step === "usage") return `${values[step]}`;
+                  if (step === "devices") return `${values[step]} Devices`;
+                  if (step === "budget") return `€ ${values[step]} / month`;
+                })()}
+              </span>
               <div className="flex flex-row items-center">
                 <span className="mr-6 text-xs font-light text-gray-300">
                   {step}
@@ -60,10 +71,9 @@ function Preferences() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="feather feather-chevron-right"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
                   <polyline points="9 18 15 12 9 6"></polyline>
                 </svg>
