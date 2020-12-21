@@ -35,6 +35,11 @@ function Home() {
                 : "finish survey"
               : "start survey"}
           </button>
+          {step && step !== 0 && (
+            <p className="hidden md:block mt-2 text-xs font-light text-gray-600">
+              Finish where you left off ⛳
+            </p>
+          )}
         </div>
         <button
           className="text-base w-full uppercase font-semibold h-12 bg-purple-500 rounded text-gray-100 shadow-lg md:hidden"

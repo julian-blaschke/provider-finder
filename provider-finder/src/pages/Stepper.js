@@ -63,6 +63,7 @@ function Devices() {
         <input
           required
           type="number"
+          step={1}
           min={1}
           max={100}
           className="input"
@@ -97,8 +98,9 @@ function Budget() {
         <input
           required
           type="number"
-          min={1}
-          max={300}
+          step="0.01"
+          min="1.0"
+          max="300.0"
           className="input"
           value={values.budget}
           onChange={(e) =>
