@@ -58,7 +58,7 @@ function Results() {
   const { values } = useStepperContext();
   const providers = getProviders({ ...values });
   return (
-    <div className="dark:bg-gray-900 transform duration-500">
+    <div className="dark:bg-gray-900 transform duration-500 min-h-screen">
       <NavBar></NavBar>
       <Preferences></Preferences>
       {/*todo: make this scrollable*/}
@@ -68,7 +68,7 @@ function Results() {
             <h1 className="text-4xl font-semibold text-gray-900 dark:text-gray-100">
               🏆 Top picks 4 u
             </h1>
-            <p className="mt-2 jtext-sm font-light text-gray-600">
+            <p className="mt-2 jtext-sm font-light text-gray-600 dark:text-gray-400">
               Here are our top 3 picks for you based on your preferences.
             </p>
             <div className="py-4 grid space-y-4">

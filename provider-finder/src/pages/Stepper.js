@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useHistory } from "react-router";
-import NavBar from "../components/Navbar";
 import { useStepperContext } from "../context/StepperContext";
+import NavBar from "../components/Navbar";
 import usageLogo from "../img/usage.png";
 import devicesLogo from "../img/devices.png";
 import budgetLogo from "../img/budget.png";
@@ -15,7 +15,7 @@ function Usage() {
       <h1 className="text-4xl font-semibold text-gray-900 dark:text-gray-100">
         I use my Internet mostly for...
       </h1>
-      <p className="mt-2 text-sm font-light text-gray-600">
+      <p className="mt-2 text-sm font-light text-gray-600 dark:text-gray-400">
         Find the best Internet Providers for your individual usage.
       </p>
       <div className="mt-10 py-4">
@@ -50,7 +50,7 @@ function Devices() {
       <h1 className="text-4xl font-semibold text-gray-900 dark:text-gray-100">
         On average I connect...
       </h1>
-      <p className="mt-2 text-sm font-light text-gray-600">
+      <p className="mt-2 text-sm font-light text-gray-600 dark:text-gray-400">
         Please tell us how many devices you connect to your internet on average.
       </p>
       <div className="mt-10 py-4">
@@ -85,7 +85,7 @@ function Budget() {
       <h1 className="text-4xl font-semibold text-gray-900 dark:text-gray-100">
         I can afford at most...
       </h1>
-      <p className="mt-2 text-sm font-light text-gray-600">
+      <p className="mt-2 text-sm font-light text-gray-600 dark:text-gray-400">
         Please tell us how much you are willing to spend on your internet.
       </p>
       <div className="mt-10 py-4">
@@ -113,7 +113,7 @@ function Budget() {
 }
 
 function Stepper() {
-  const { step, setStep, values } = useStepperContext();
+  const { step, setStep } = useStepperContext();
   const { push } = useHistory();
   const logo = useMemo(() => {
     if (step === 0) return usageLogo;
@@ -134,7 +134,9 @@ function Stepper() {
       <NavBar></NavBar>
       <div className="h-full p-4 flex flex-col max-w-lg">
         <div className="lg:mt-4 lg:px-4">
-          <span className="text-gray-600 text-xl">Step {step + 1} of 3</span>
+          <span className="text-gray-600 text-xl dark:text-gray-400">
+            Step {step + 1} of 3
+          </span>
         </div>
         <div className="lg:p-4 flex flex-col h-full">
           {[<Usage />, <Devices />, <Budget />][step]}
@@ -152,7 +154,6 @@ function Stepper() {
             </button>
             <button
               className="text-base w-full uppercase font-semibold h-12 bg-purple-500 rounded text-gray-100 shadow-lg"
-              disabled={!!values[step]}
               onClick={() => {
                 if (step === 3 - 1) {
                   setStep(0);

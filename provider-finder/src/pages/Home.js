@@ -22,7 +22,7 @@ function Home() {
           <h1 className="text-4xl font-semibold text-gray-900 dark:text-gray-100 md:text-center">
             Welcome to Provider Finder!
           </h1>
-          <p className="mt-2 jtext-sm font-light text-gray-600">
+          <p className="mt-2 jtext-sm font-light text-gray-600 dark:text-gray-400">
             Find the best Internet Providers for your individual usage.
           </p>
           <button
@@ -36,7 +36,7 @@ function Home() {
               : "start survey"}
           </button>
           {step !== 0 && (
-            <p className="hidden md:block mt-2 text-xs font-light text-gray-600">
+            <p className="hidden md:block mt-2 text-xs font-light text-gray-600 dark:text-gray-400">
               Finish where you left off ⛳
             </p>
           )}

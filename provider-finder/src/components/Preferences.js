@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { useStepperContext } from "../context/StepperContext";
 
@@ -8,6 +8,9 @@ function Preferences() {
   const [isOpen, setIsOpen] = useState(false);
   const { values, setStep } = useStepperContext();
   const { push } = useHistory();
+
+  //on page load close preferences menu, that may had been left opened from previous visits
+  useEffect(() => setIsOpen(false), []);
 
   return (
     <div className="w-full bg-purple-500 rounded-b sticky top-0 z-40">
@@ -34,11 +37,7 @@ function Preferences() {
           </svg>
         </span>
       </div>
-      <div
-        className={`${
-          isOpen ? "block" : "hidden"
-        } px-2 pb-2 text-gray-100 transition duration-500 transform`}
-      >
+      <div className={`px-2 pb-2 text-gray-100 ${isOpen ? "block" : "hidden"}`}>
         <div className="grid space-y-2 my-3">
           {steps.map((step) => (
             <div
