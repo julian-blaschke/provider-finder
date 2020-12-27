@@ -1,15 +1,17 @@
-import { useEffect } from "react";
-import Preferences from "../components/Preferences";
+import { useEffect, lazy, Suspense } from "react";
 import { useStepperContext } from "../context/StepperContext";
 import { getProviders } from "../lib/data";
+import logo from "../img/results.png";
+import idea from "../img/idea.png";
+
+const Preferences = lazy(() => import("../components/Preferences"));
 
 function Result({ rank, name, usage, budget, devices, link }) {
   return (
     <a href={link} rel="noreferrer" target="_blank">
-      <div className="p-2 flex flex-row bg-gray-100 shadow justify-between items-center rounded transition duration-500 ease-in-out transform hover:-translate-y-1 cursor-pointer hover:bg-purple-200">
+      <div className="p-2 flex flex-row bg-gray-100 shadow justify-between items-center rounded transition duration-500 ease-in-out transform hover:-translate-y-1 cursor-pointer hover:bg-gray-200">
         <div className="h-full flex flex-row items-center">
-          <div className="mr-1 h-14 w-2 rounded-full bg-purple-600"></div>
-          <span className="font-semibold text-lg text-purple-600">#{rank}</span>
+          <span className="font-semibold text-lg text-orange">#{rank}</span>
         </div>
         <div className="flex flex-row items-center">
           <div className="ml-4">
@@ -58,16 +60,19 @@ function Results() {
   const { values, setStep } = useStepperContext();
   const providers = getProviders({ ...values });
 
-  useEffect(() => setStep(""), []);
+  useEffect(() => setStep(""), [setStep]);
 
   return (
     <div className="flex flex-col items-center h-full flex-1">
-      <Preferences></Preferences>
+      <Suspense fallback={<p>loading...</p>}>
+        <Preferences></Preferences>
+      </Suspense>
       <div className="flex flex-col items-center">
         <div>
           <div className="mt-4 p-4 max-w-2xl">
+            <img src={logo} alt="logo" className="w-40"></img>
             <h1 className="text-4xl font-semibold text-gray-900 dark:text-gray-100">
-              🏆 Top picks 4 u
+              Top picks 4 u
             </h1>
             <p className="mt-2 jtext-sm font-light text-gray-600 dark:text-gray-400">
               Here are our top 3 picks for you based on your preferences.
@@ -79,6 +84,7 @@ function Results() {
             </div>
           </div>
           <div className="mt-4 p-4 max-w-lg">
+            <img src={idea} alt="logo" className="w-40"></img>
             <h2 className="text-4xl font-semibold text-gray-900 dark:text-gray-100">
               You might also like
             </h2>

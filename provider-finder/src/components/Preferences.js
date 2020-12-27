@@ -13,14 +13,15 @@ function Preferences() {
   useEffect(() => setIsOpen(false), []);
 
   return (
-    <div className="w-full bg-purple-500 rounded-b sticky top-0 z-40">
+    <div className="transition duration-300 w-full bg-gray-900 text-gray-100 rounded-b sticky top-0 z-40 dark:bg-gray-100 dark:text-gray-900">
       <div
         className="p-2 h-12 flex flex-row justify-between items-center cursor-pointer"
         onClick={() => setIsOpen((o) => !o)}
       >
-        <span className="font-semibold text-gray-100">Preferences</span>
+        <span className="font-semibold">Preferences</span>
         <span className={`transition transform ${isOpen ? "rotate-180" : ""}`}>
           <svg
+            className="stroke-current"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -29,7 +30,6 @@ function Preferences() {
           >
             <path
               d="M6 9L12 15L18 9"
-              stroke="#F7FAFC"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -37,7 +37,7 @@ function Preferences() {
           </svg>
         </span>
       </div>
-      <div className={`px-2 pb-2 text-gray-100 ${isOpen ? "block" : "hidden"}`}>
+      <div className={`px-2 pb-2 ${isOpen ? "block" : "hidden"}`}>
         <div className="grid space-y-2 my-3">
           {steps.map((step) => (
             <div
@@ -58,11 +58,12 @@ function Preferences() {
                 </span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
+                  className="stroke-current"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="currentColor"
+                  stroke="2"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"

@@ -26,7 +26,7 @@ function Home() {
           </div>
         </div>
         <button
-          className="text-base w-full uppercase font-semibold h-12 bg-purple-500 rounded text-gray-100 shadow-lg"
+          className="button"
           onClick={() => (step ? push(`/${step}`) : push("/usage"))}
         >
           {buttonContent}

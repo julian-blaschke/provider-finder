@@ -1,8 +1,7 @@
 module.exports = {
-  purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
+  purge: ["./src/**/*.html", "./src/**/*.jsx", "./src/**/*.js"],
   darkMode: "class", // or 'media' or 'class'
   theme: {
-    // ...
     height: (theme) => ({
       auto: "auto",
       ...theme("spacing"),
@@ -15,7 +14,11 @@ module.exports = {
       full: "100%",
       screen: "calc(var(--vh) * 100)",
     }),
-    // ...
+    extend: {
+      colors: {
+        orange: "#eb7e44",
+      },
+    },
   },
   variants: {
     opacity: ({ after }) => after(["disabled"]),

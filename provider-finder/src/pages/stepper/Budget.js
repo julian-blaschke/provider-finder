@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
+
 import { useStepperContext } from "../../context/StepperContext";
-import logo from "../../img/budget.png";
 import { budgetSchema } from "../../lib/schema";
+import logo from "../../img/budget.png";
 
 function Budget() {
   const { values, setValues, setStep } = useStepperContext();
@@ -23,7 +24,7 @@ function Budget() {
 
   useEffect(() => {
     setStep("budget");
-  }, []);
+  }, [setStep]);
 
   return (
     <div className="flex flex-col items-center h-full flex-1">

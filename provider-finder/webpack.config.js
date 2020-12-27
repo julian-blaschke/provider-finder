@@ -7,6 +7,15 @@ module.exports = {
     path: path.join(__dirname, "public"),
     filename: "bundle.js",
   },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "babel-loader",
+      },
+    ],
+  },
   plugins: [
     new CompressionPlugin({
       filename: "[path].gz[query]",
