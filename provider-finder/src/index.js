@@ -31,7 +31,13 @@ function App() {
       <StepperProvider>
         <ThemeProvider>
           <div className="flex flex-col transition duration-500 min-h-screen bg-gray-100 dark:bg-black">
-            <Suspense fallback={<p>loading...</p>}>
+            <Suspense
+              fallback={
+                <p className="text-center px-4 py-2 font-lg text-gray-900 dark:text-gray-100">
+                  loading...
+                </p>
+              }
+            >
               <NavBar></NavBar>
               <Switch>
                 <Route exact path="/">
