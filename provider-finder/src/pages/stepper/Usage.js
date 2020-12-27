@@ -10,7 +10,7 @@ function Usage() {
 
   useEffect(() => {
     setStep("usage");
-  }, []);
+  }, [setStep]);
 
   return (
     <div className="flex flex-col items-center h-full flex-1">

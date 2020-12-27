@@ -21,7 +21,7 @@ function Devices() {
 
   useEffect(() => {
     setStep("devices");
-  }, []);
+  }, [setStep]);
 
   return (
     <div className="flex flex-col items-center h-full flex-1">

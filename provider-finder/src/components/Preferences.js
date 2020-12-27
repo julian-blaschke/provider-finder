@@ -13,12 +13,12 @@ function Preferences() {
   useEffect(() => setIsOpen(false), []);
 
   return (
-    <div className="transition duration-300 w-full bg-gray-900 text-gray-100 rounded-b sticky top-0 z-40 dark:bg-gray-100 dark:text-gray-900">
+    <div className="px-4 transition duration-300 w-full bg-gray-900 text-gray-100 rounded-b sticky top-0 z-40 dark:bg-gray-100 dark:text-gray-900">
       <div
-        className="p-2 h-12 flex flex-row justify-between items-center cursor-pointer"
+        className="h-12 flex flex-row justify-between items-center cursor-pointer"
         onClick={() => setIsOpen((o) => !o)}
       >
-        <span className="font-semibold">Preferences</span>
+        <span className="font-light">Preferences</span>
         <span className={`transition transform ${isOpen ? "rotate-180" : ""}`}>
           <svg
             className="stroke-current"
@@ -37,7 +37,7 @@ function Preferences() {
           </svg>
         </span>
       </div>
-      <div className={`px-2 pb-2 ${isOpen ? "block" : "hidden"}`}>
+      <div className={`pb-2 ${isOpen ? "block" : "hidden"}`}>
         <div className="grid space-y-2 my-3">
           {steps.map((step) => (
             <div
