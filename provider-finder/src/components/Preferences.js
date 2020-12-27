@@ -6,7 +6,7 @@ const steps = ["usage", "devices", "budget"];
 
 function Preferences() {
   const [isOpen, setIsOpen] = useState(false);
-  const { values, setStep } = useStepperContext();
+  const { values } = useStepperContext();
   const { push } = useHistory();
 
   //on page load close preferences menu, that may had been left opened from previous visits
@@ -43,14 +43,7 @@ function Preferences() {
             <div
               key={step}
               className="flex flex-row justify-between items-center cursor-pointer"
-              onClick={() => {
-                setStep(() => {
-                  if (step === "usage") return 0;
-                  if (step === "devices") return 1;
-                  if (step === "budget") return 2;
-                });
-                push("/stepper");
-              }}
+              onClick={() => push(`/${step}`)}
             >
               <span className="text-sm font-semibold">
                 {(() => {

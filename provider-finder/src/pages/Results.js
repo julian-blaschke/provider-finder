@@ -1,4 +1,4 @@
-import NavBar from "../components/Navbar";
+import { useEffect } from "react";
 import Preferences from "../components/Preferences";
 import { useStepperContext } from "../context/StepperContext";
 import { getProviders } from "../lib/data";
@@ -55,16 +55,17 @@ function Result({ rank, name, usage, budget, devices, link }) {
 }
 
 function Results() {
-  const { values } = useStepperContext();
+  const { values, setStep } = useStepperContext();
   const providers = getProviders({ ...values });
+
+  useEffect(() => setStep(""), []);
+
   return (
-    <div className="dark:bg-gray-900 transform duration-500 min-h-screen">
-      <NavBar></NavBar>
+    <div className="flex flex-col items-center h-full flex-1">
       <Preferences></Preferences>
-      {/*todo: make this scrollable*/}
       <div className="flex flex-col items-center">
         <div>
-          <div className="mt-4 p-4 max-w-lg">
+          <div className="mt-4 p-4 max-w-2xl">
             <h1 className="text-4xl font-semibold text-gray-900 dark:text-gray-100">
               🏆 Top picks 4 u
             </h1>
