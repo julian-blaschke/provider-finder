@@ -13,13 +13,17 @@ function Preferences() {
   useEffect(() => setIsOpen(false), []);
 
   return (
-    <div className="px-4 transition duration-300 w-full bg-gray-900 text-gray-100 rounded-b sticky top-0 z-40 dark:bg-gray-100 dark:text-gray-900">
+    <div className="px-4 transition duration-300 w-full bg-black text-gray-100 rounded-b sticky top-0 z-40 dark:bg-gray-100 dark:text-gray-900">
       <div
         className="h-12 flex flex-row justify-between items-center cursor-pointer"
         onClick={() => setIsOpen((o) => !o)}
       >
         <span className="font-light">Preferences</span>
-        <span className={`transition transform ${isOpen ? "rotate-180" : ""}`}>
+        <span
+          className={`transition duration-500 transform ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        >
           <svg
             className="stroke-current"
             width="24"
@@ -30,7 +34,7 @@ function Preferences() {
           >
             <path
               d="M6 9L12 15L18 9"
-              strokeWidth="2"
+              strokeWidth="1"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
@@ -53,7 +57,7 @@ function Preferences() {
                 })()}
               </span>
               <div className="flex flex-row items-center">
-                <span className="mr-6 text-xs font-light text-gray-300">
+                <span className="mr-6 text-xs font-light text-gray-300 dark:text-gray-700">
                   {step}
                 </span>
                 <svg

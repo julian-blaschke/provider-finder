@@ -2,7 +2,7 @@ import { useEffect, lazy, Suspense } from "react";
 import { useStepperContext } from "../context/StepperContext";
 import { getProviders } from "../lib/data";
 import logo from "../img/results.png";
-import idea from "../img/idea.png";
+import logo2 from "../img/results2.png";
 
 const Preferences = lazy(() => import("../components/Preferences"));
 
@@ -72,7 +72,7 @@ function Results() {
           <div className="mt-4 p-4 max-w-2xl">
             <img src={logo} alt="logo" className="w-40"></img>
             <h1 className="text-4xl font-semibold text-gray-900 dark:text-gray-100">
-              Top picks 4 u
+              Top picks for you
             </h1>
             <p className="mt-2 jtext-sm font-light text-gray-600 dark:text-gray-400">
               Here are our top 3 picks for you based on your preferences.
@@ -84,7 +84,7 @@ function Results() {
             </div>
           </div>
           <div className="mt-4 p-4 max-w-lg">
-            <img src={idea} alt="logo" className="w-40"></img>
+            <img src={logo2} alt="logo" className="w-40"></img>
             <h2 className="text-4xl font-semibold text-gray-900 dark:text-gray-100">
               You might also like
             </h2>
