@@ -41,7 +41,7 @@ function Budget() {
               htmlFor="devices"
               className="mb-2 font-semibold text-gray-900 dark:text-gray-100"
             >
-              At most € {values.budget || ""} / month
+              € {values.budget || ""} / month
             </label>
             <input
               required

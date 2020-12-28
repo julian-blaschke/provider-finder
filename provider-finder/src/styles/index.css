@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply transition duration-500;
+    @apply transition duration-500 bg-gray-100 dark:bg-black;
   }
 }
 

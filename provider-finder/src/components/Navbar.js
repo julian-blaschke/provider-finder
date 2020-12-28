@@ -6,7 +6,7 @@ function NavBar() {
   const { setTheme, theme } = useThemeContext();
   console.log(theme);
   return (
-    <nav className="flex justify-between py-2 px-4 shadow">
+    <nav className="flex justify-between py-2 px-4">
       <Link to="/" className="text-gray-900 dark:text-gray-100">
         Home
       </Link>

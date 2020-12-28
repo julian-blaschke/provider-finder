@@ -18,12 +18,8 @@ function Preferences() {
         className="h-12 flex flex-row justify-between items-center cursor-pointer"
         onClick={() => setIsOpen((o) => !o)}
       >
-        <span className="font-light">Preferences</span>
-        <span
-          className={`transition duration-500 transform ${
-            isOpen ? "rotate-180" : ""
-          }`}
-        >
+        <span>Preferences</span>
+        <span className={`transform ${isOpen ? "rotate-180" : ""}`}>
           <svg
             className="stroke-current"
             width="24"
