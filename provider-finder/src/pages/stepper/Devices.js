@@ -16,12 +16,18 @@ function Devices() {
     devicesSchema
       .validate(devices)
       .then(setValues((v) => ({ ...v, devices: parseInt(e.target.value) })))
-      .catch((e) => setError(e));
+      .catch((err) => setError(err));
   };
 
   useEffect(() => {
     setStep("devices");
   }, [setStep]);
+
+  useEffect(
+    () => devicesSchema.validate(values.devices).catch(() => setError(true)),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
 
   return (
     <div className="flex flex-col items-center h-full flex-1">

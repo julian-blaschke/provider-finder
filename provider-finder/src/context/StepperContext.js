@@ -17,8 +17,8 @@ export function StepperProvider({ children }) {
     }
     return {
       usage: "Browsing/Emailing",
-      devices: 4,
-      price: 10,
+      devices: 2,
+      price: 25,
     };
   });
 

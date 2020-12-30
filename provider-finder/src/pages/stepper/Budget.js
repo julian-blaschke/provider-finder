@@ -26,6 +26,12 @@ function Budget() {
     setStep("budget");
   }, [setStep]);
 
+  useEffect(
+    () => budgetSchema.validate(values.budget).catch(() => setError(true)),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
+
   return (
     <div className="flex flex-col items-center h-full flex-1">
       <div className="h-full flex-1 p-4 flex flex-col max-w-md">
