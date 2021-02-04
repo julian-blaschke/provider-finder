@@ -13,7 +13,7 @@ function Preferences() {
   useEffect(() => setIsOpen(false), []);
 
   return (
-    <div className="px-4 transition duration-300 w-full bg-black text-gray-100 rounded-b sticky top-0 z-40 dark:bg-gray-100 dark:text-gray-900">
+    <div className="px-4 transition duration-300 w-full bg-black text-gray-100 rounded-b sticky top-0 z-40 dark:bg-gray-800 dark:text-gray-100">
       <div
         className="h-12 flex flex-row justify-between items-center cursor-pointer"
         onClick={() => setIsOpen((o) => !o)}
@@ -45,7 +45,7 @@ function Preferences() {
               className="flex flex-row justify-between items-center cursor-pointer"
               onClick={() => push(`/${step}`)}
             >
-              <span className="text-sm font-semibold">
+              <span className="text-sm font-semibold dark:text-gray-300">
                 {(() => {
                   if (step === "usage") return `${values[step]}`;
                   if (step === "devices") return `${values[step]} Devices`;
@@ -53,7 +53,7 @@ function Preferences() {
                 })()}
               </span>
               <div className="flex flex-row items-center">
-                <span className="mr-6 text-xs font-light text-gray-300 dark:text-gray-700">
+                <span className="mr-6 text-xs font-light text-gray-300 dark:text-gray-300">
                   {step}
                 </span>
                 <svg

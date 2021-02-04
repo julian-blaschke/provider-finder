@@ -9,15 +9,17 @@ const Preferences = lazy(() => import("../components/Preferences"));
 function Result({ rank, name, usage, budget, devices, link }) {
   return (
     <a href={link} rel="noreferrer" target="_blank">
-      <div className="p-2 flex flex-row bg-gray-100 shadow justify-between items-center rounded transition duration-500 ease-in-out transform hover:-translate-y-1 cursor-pointer hover:bg-gray-200">
+      <div className="p-2 flex flex-row bg-gray-100 dark:bg-gray-800 dark:text-gray-100 shadow justify-between items-center rounded transition duration-500 ease-in-out transform hover:-translate-y-1 cursor-pointer hover:bg-gray-200">
         <div className="h-full flex flex-row items-center">
           <span className="font-semibold text-lg text-orange">#{rank}</span>
         </div>
         <div className="flex flex-row items-center">
           <div className="ml-4">
             <h2 className="text-sm">{name}</h2>
-            <p className="text-xs font-semibold">€ {budget} / month</p>
-            <p className="mt-1 text-xs">
+            <p className="text-xs font-semibold dark:text-gray-400">
+              € {budget} / mont$
+            </p>
+            <p className="mt-1 text-xs dark:text-gray-300">
               up to {devices} devices, opted for {usage}
             </p>
           </div>
